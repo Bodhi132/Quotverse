@@ -14,10 +14,8 @@ const IndexPage = () => {
    }, [activeFeed])
 
   return (
-    <div className='flex'>
-      <div>
+    <div className='flex bg-black w-full'>
         <UserInfo />
-      </div>
       {activeFeed === 'Home' && <Home />}
       { activeFeed  === 'Like' && <Like />}
       <TrendingTopics />

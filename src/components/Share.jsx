@@ -1,4 +1,6 @@
 // Share.js
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 
 import React from "react";
 
@@ -22,7 +24,9 @@ const Share = ({data}) => {
 
   return (
     <div>
-      <button onClick={handleShareClick}>Share 🔗</button>
+      <button onClick={handleShareClick}>
+        <FontAwesomeIcon icon={faPaperPlane} size='lg'/>
+      </button>
     </div>
   );
 };
