@@ -32,6 +32,7 @@ const TrendingTopics = () => {
                     <h1>Trending Topics</h1>
                     <FontAwesomeIcon icon={faGear} />
                 </div>
+                <div className='px-6 text-[#3897F0] cursor-pointer' onClick={() => handleClick('')}>show all quotes</div>
                 {
                     tags.map(tag => {
                         return (
