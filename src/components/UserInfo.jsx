@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import user from '../assets/user.png'
 
 const UserInfo = () => {
 
@@ -11,7 +12,7 @@ const UserInfo = () => {
         <h1 className=' font-medium text-2xl'>Quotverse</h1>
       </div>
       <div className='px-10 pt-8'>
-        <div className='sm:w-[64px] sm:h-[64px] bg-white rounded-full'></div>
+        <img src={user} alt="" className=':w-[64px] :h-[64px] rounded-full' />
         <h1 className=' text-xl font-medium mt-2'>John Doe</h1>
         <p className=' text-sm my-2'>johndoe</p>
         <p className=' text-sm'>UI Developer | Let's redesign the world</p>
