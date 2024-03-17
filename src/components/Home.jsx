@@ -50,6 +50,7 @@ const Home = () => {
 
     const handleId = () => {
         setQuotesId()
+        dispatch(setActiveTag(''))
         axios.get(`https://api.quotable.io/quotes`).then(res => {
             setQuotes(res.data.results)
         })
@@ -63,7 +64,7 @@ const Home = () => {
             <Header />
             {
                 activeTag && <div className='text-white flex h-[62px] space-x-5 items-center ml-4'>
-                    <FontAwesomeIcon icon={faArrowLeftLong} size='lg' onClick={() => handleId} className='ml-3 cursor-pointer' />
+                    <FontAwesomeIcon icon={faArrowLeftLong} size='lg' onClick={() => handleId()} className='ml-3 cursor-pointer' />
                     <div className=' flex flex-col items-center'>
                         <p>Topic</p>
                         <h1 className='text-lg capitalize'>#{activeTag}</h1>
