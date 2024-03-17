@@ -9,10 +9,6 @@ const IndexPage = () => {
 
   const activeFeed = useSelector(state => state.feed.activeFeed)
 
-  useEffect(() => { 
-    console.log('activeFeed:', activeFeed)
-   }, [activeFeed])
-
   return (
     <div className='flex bg-black w-full'>
         <UserInfo />

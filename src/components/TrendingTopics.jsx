@@ -18,7 +18,6 @@ const TrendingTopics = () => {
 
     useEffect(() => {
         axios.get('https://api.quotable.io/tags').then(res => {
-            // console.log(res.data);
             setTags(res.data)
         })
     }, [])

@@ -24,23 +24,18 @@ const Home = () => {
 
     useEffect(() => {
         axios.get(`https://api.quotable.io/quotes`).then(res => {
-            console.log(res.data.results);
             setQuotes(res.data.results)
         })
     }, [])
 
     useEffect(() => {
         axios.get(`https://api.quotable.io/quotes?tags=${activeTag}`).then(res => {
-            console.log(activeTag);
-            console.log(res.data.results);
             setQuotes(res.data.results)
         })
     }, [activeTag])
 
     useEffect(() => {
         axios.get(`https://api.quotable.io/quotes/${quotesId}`).then(res => {
-            console.log(activeTag);
-            console.log(res.data);
             setQuotesIdEle(res.data)
         })
     }, [quotesId])
@@ -56,7 +51,6 @@ const Home = () => {
     const handleId = () => {
         setQuotesId()
         axios.get(`https://api.quotable.io/quotes`).then(res => {
-            console.log(res.data.results);
             setQuotes(res.data.results)
         })
     }

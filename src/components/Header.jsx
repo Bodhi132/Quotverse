@@ -44,7 +44,6 @@ const Header = () => {
                     </button>
                 </div>
             </div>
-            {/* <div className=' w-[30rem] border-b border-l border-[#323232]'></div> */}
         </div>
     )
 }
