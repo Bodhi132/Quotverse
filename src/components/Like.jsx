@@ -23,7 +23,7 @@ const Like = () => {
   };
 
   return (
-    <div className=' text-white border-l border-r border-[#323232]'>
+    <div className=' text-white border-l border-r border-[#323232] h-screen'>
       <Header />
       {
         likedQuotes && likedQuotes.map(quote => {

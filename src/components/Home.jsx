@@ -16,6 +16,7 @@ const Home = () => {
 
     const dispatch = useDispatch();
     const likedQuotes = useSelector(state => state.quote.quote)
+    const menu = useSelector(state => state.menu.activeMenu)
 
     const [quotes, setQuotes] = useState([])
     const [quotesId, setQuotesId] = useState()
@@ -26,7 +27,11 @@ const Home = () => {
         axios.get(`https://api.quotable.io/quotes`).then(res => {
             setQuotes(res.data.results)
         })
+        console.log(menu);
     }, [])
+    useEffect(() => {
+        console.log(menu);
+    }, [menu])
 
     useEffect(() => {
         axios.get(`https://api.quotable.io/quotes?tags=${activeTag}`).then(res => {
@@ -57,7 +62,7 @@ const Home = () => {
     }
 
     return (
-        <div className='w-[40rem] border-l border-r border-[#323232]'>
+        <div className={`sm:w-[40rem] sm:block border-l border-r border-[#323232] ${menu?' max-sm:hidden':'max-sm:block'}`}>
             {
                 quotes === null && <p>Loading...</p>
             }
@@ -73,7 +78,7 @@ const Home = () => {
             }
             {
                 quotesId &&
-                <div className='border-b border-[#323232] p-4 text-white'>
+                <div className='border-b border-[#323232] p-4 text-white w-full'>
                     <FontAwesomeIcon icon={faArrowLeftLong} size='lg' onClick={() => setQuotesId()} className='ml-3 cursor-pointer' />
                     <div className='p-4 text-white'>
                         <div className='flex space-x-3 py-4'>

@@ -10,7 +10,7 @@ const IndexPage = () => {
   const activeFeed = useSelector(state => state.feed.activeFeed)
 
   return (
-    <div className='flex bg-black w-full'>
+    <div className='flex bg-black w-full h-full'>
         <UserInfo />
       {activeFeed === 'Home' && <Home />}
       { activeFeed  === 'Like' && <Like />}

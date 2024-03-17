@@ -7,7 +7,7 @@ const UserInfo = () => {
   const quote = useSelector(state => state.quote.quote)
 
   return (
-    <div className=' w-[30rem] text-white'>
+    <div className='w-[30rem] text-white sm:block hidden'>
       <div className=' bg-black h-[56px] text-white flex items-center justify-center border-b border-[#323232]'>
         <h1 className=' font-medium text-2xl'>Quotverse</h1>
       </div>
