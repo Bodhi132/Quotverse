@@ -26,7 +26,7 @@ const Header = () => {
     }
 
     return (
-        <div className='flex flex-row bg-black h-[56px] text-white sm:w-[40rem] w-full'>
+        <div className='flex flex-row bg-black h-[56px] text-white md:w-[40rem] w-full'>
             <div className='w-full flex justify-around border-b border-l border-[#323232] items-center'>
                 <div >
                     <button onClick={() => handleClick('Home')}>
@@ -50,10 +50,10 @@ const Header = () => {
                         }} />}
                     </button>
                 </div>
-                <div className='block sm:hidden'>
+                <div className='block md:hidden'>
                     <BiMenuAltRight style={{
                         fontSize: '30px',cursor:'pointer'
-                    }} className='block sm:hidden' onClick={handleMenu}/>
+                    }} className='block md:hidden' onClick={handleMenu}/>
                 </div>
             </div>
         </div>

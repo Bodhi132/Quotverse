@@ -32,12 +32,12 @@ const TrendingTopics = () => {
 
     return (
         <>
-            <div className={`sm:w-[30rem] text-white ${menu?'max-sm:block w-full':'max-sm:hidden'}`}>
+            <div className={`md:w-[30rem] text-white ${menu?'max-md:block w-full':'max-md:hidden'}`}>
                 <div className=' bg-black h-[56px] flex text-white border-b border-l border-[#323232] justify-end items-center pr-6'>
                 <div>
                     <BiMenuAltRight style={{
                         fontSize: '30px',cursor:'pointer'
-                    }} className='block sm:hidden' onClick={handleMenu}/>
+                    }} className='block md:hidden' onClick={handleMenu}/>
                 </div>
                 </div>
                 <div className=' text-xl text-white font-medium flex justify-between items-center p-6'>
