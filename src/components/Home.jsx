@@ -62,7 +62,7 @@ const Home = () => {
     }
 
     return (
-        <div className={`md:w-[40rem] md:block border-l border-r border-[#323232] ${menu ? ' max-md:hidden' : 'max-md:block h-full'}`}>
+        <div className={`md:w-[40rem] md:block border-l border-r border-[#323232] ${menu ? ' max-md:hidden' : 'max-md:block h-full bg-black min-h-screen'}`}>
             {
                 quotes === null && <p>Loading...</p>
             }
