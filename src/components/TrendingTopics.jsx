@@ -29,6 +29,7 @@ const TrendingTopics = () => {
 
     useEffect(() => {
         axios.get('https://api.quotable.io/tags').then(res => {
+            console.log(res.data);
             setTags(res.data)
         })
     }, [])
@@ -49,7 +50,7 @@ const TrendingTopics = () => {
                 </div>
                 <div className='px-6 text-[#3897F0] cursor-pointer' onClick={() => handleClick('')}>show all quotes</div>
                 {
-                    tags.map(tag => {
+                    tags.filter(tag=>tag.quoteCount!==0).map(tag => {
                         return (
                             <div key={tag._id} className=' p-6'>
                                 <h1 className=' text-[#616161]'>{tag.name}</h1>
