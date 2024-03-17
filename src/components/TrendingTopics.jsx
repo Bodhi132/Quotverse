@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { setActiveTag } from '../redux/tagSlice'
+import { setActiveFeed } from '../redux/feedSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { BiMenuAltRight } from "react-icons/bi";
@@ -12,10 +13,12 @@ const TrendingTopics = () => {
 
     const dispatch = useDispatch();
     const menu = useSelector(state => state.menu.activeMenu)
+    const activeFeed = useSelector(state => state.feed.activeFeed)
 
     const handleClick = (hash) => {
         dispatch(setActiveTag(hash))
         dispatch(toggleActiveMenu());
+        dispatch(setActiveFeed('Home'))
     }
 
     const handleMenu = () => {

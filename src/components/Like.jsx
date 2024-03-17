@@ -13,6 +13,7 @@ const Like = () => {
 
   const dispatch = useDispatch();
   const likedQuotes = useSelector(state => state.quote.quote)
+  const menu = useSelector(state => state.menu.activeMenu)
 
   const handleLike = (quote) => {
     if (likedQuotes.some((likedQuote) => likedQuote._id === quote._id)) {
@@ -23,7 +24,7 @@ const Like = () => {
   };
 
   return (
-    <div className=' text-white border-l border-r border-[#323232] h-screen'>
+    <div className={` text-white md:w-[40rem] w-full border-l border-r border-[#323232] ${menu?' max-md:hidden':'max-md:block h-full bg-black min-h-screen'}`}>
       <Header />
       {
         likedQuotes && likedQuotes.map(quote => {
