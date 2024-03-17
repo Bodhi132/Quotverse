@@ -1,34 +1,52 @@
-// Share.js
+import React, { useState } from 'react';
+import { FacebookShareButton, RedditShareButton, EmailShareButton,TwitterShareButton } from 'react-share';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { TwitterIcon } from 'react-share';
+import { RedditIcon } from 'react-share';
+import { FacebookIcon } from 'react-share';
+import { EmailIcon } from 'react-share';
 
-import React from "react";
 
-const Share = ({data}) => {
-  const handleShareClick = async () => {
-    try {
-      if (navigator.share) {
-        await navigator.share({
-          title: data.title,
-          text: data.text,
-          url: "http://localhost:5173/",
-        });
-        console.log("Shared successfully!");
-      } else {
-        console.log("Web Share API not supported in this browser.");
-      }
-    } catch (error) {
-      console.error("Error sharing:", error);
-    }
+const ShareButton = ({ data }) => {
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
+
+  const { title, text } = data; // Extract title and text from props
+  const shareUrl = window.location.href; // Replace with your actual website URL
+
+  const handleShareClick = () => {
+    setShowModal(!showModal);
   };
 
   return (
-    <div>
-      <button onClick={handleShareClick}>
-        <FontAwesomeIcon icon={faPaperPlane} size='lg'/>
+    <div className="relative">
+      <button
+        onClick={handleShareClick}
+      >
+        <FontAwesomeIcon icon={faPaperPlane} size="lg" />
       </button>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="absolute left-4 flex items-center justify-center z-50 bg-yellow-200">
+            <div className="flex text-black">
+              <FacebookShareButton url={shareUrl} quote={text}>
+                <FacebookIcon/>
+              </FacebookShareButton>
+              <RedditShareButton url={shareUrl} title={title}>
+                <RedditIcon/>
+              </RedditShareButton>
+              <EmailShareButton url={shareUrl} subject={title} body={text}>
+                <EmailIcon/>
+              </EmailShareButton>
+              <TwitterShareButton url={shareUrl} subject={title} body={text}>
+                <TwitterIcon/>
+              </TwitterShareButton>
+            </div>
+          </div>
+      )}
     </div>
   );
 };
 
-export default Share;
+export default ShareButton;
